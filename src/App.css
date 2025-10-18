@@ -1,0 +1,241 @@
+:root {
+  --vh: 1vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ✨ 新增：图片气泡淡入+缩放动画 */
+@keyframes fadeInPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 自定义滚动条样式 - 用于待办事项 */
+.todo-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.todo-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.todo-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.todo-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 2px;
+}
+
+.todo-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* 图标悬停效果增强 */
+.app-icon-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-icon-hover:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* 设置页面卡片动画 */
+.settings-card {
+  transition: all 0.3s ease;
+}
+
+.settings-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 🆕 扩展：字体支持系统 */
+/* 系统默认字体（无需 @font-face） */
+
+/* HarmonyOS Sans SC 字体 */
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: local('HarmonyOS Sans SC'), 
+       local('HarmonyOS_Sans_SC'),
+       url('https://cdn.jsdelivr.net/npm/harmonyos-sans-sc@1.0.0/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 霞鹜文楷字体 */
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: local('LXGW WenKai'),
+       local('LXGWWenKai-Regular'),
+       url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/fonts/lxgw-wenkai-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 优设好身体字体 */
+@font-face {
+  font-family: 'YouShe Body';
+  src: local('YouShe Body'),
+       local('YouSheBiaoTiHei'),
+       url('https://cdn.jsdelivr.net/gh/wordshub/free-font/assets/YouSheBiaoTiHei.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 江城圆体字体 */
+@font-face {
+  font-family: 'JiangCheng Yuan';
+  src: local('JiangCheng Yuan'),
+       local('JiangChengYuanTi-Regular'),
+       url('https://cdn.jsdelivr.net/gh/lxgw/kose-font@main/webfont/JiangChengYuanTi-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* JetBrains Mono 字体 */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'),
+       local('JetBrainsMono-Regular'),
+       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 🆕 通用字体应用类 */
+.font-system-default {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.font-harmonyos {
+  font-family: 'HarmonyOS Sans SC', system-ui, sans-serif;
+}
+
+.font-lxgw {
+  font-family: 'LXGW WenKai', 'STKaiti', serif;
+}
+
+.font-youshe {
+  font-family: 'YouShe Body', 'Microsoft YaHei', sans-serif;
+}
+
+.font-jiangcheng {
+  font-family: 'JiangCheng Yuan', cursive, sans-serif;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* 🆕 动态字体应用（用于通过 JS 动态设置字体） */
+.dynamic-font {
+  /* 这个类将通过 JS 动态设置 font-family */
+  transition: font-family 0.3s ease;
+}
+
+/* 🆕 确保整个应用使用一致的字体继承 */
+* {
+  font-family: inherit;
+}
+
+/* 🆕 自定义字体加载状态指示器 */
+.font-loading {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.font-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* 🆕 字体预览样式 */
+.font-preview {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+/* 🆕 响应式字体大小调整 */
+@media (max-width: 768px) {
+  .font-preview {
+    font-size: 16px;
+  }
+}
+
+/* 🆕 代码块特殊字体处理 */
+code, pre {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* 🆕 确保自定义字体在输入框中也能生效 */
+input, textarea, select, button {
+  font-family: inherit;
+}
+/* 确保所有元素继承字体设置 */
+* {
+  font-family: inherit;
+}
+
+/* 确保输入框等元素也使用自定义字体 */
+input, textarea, select, button {
+  font-family: inherit;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif; /* 默认字体 */
+  transition: font-family 0.3s ease; /* 平滑过渡 */
+}
